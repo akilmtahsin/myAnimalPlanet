@@ -13,24 +13,23 @@
     />
 
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/5c95e5cc68.js"
+      crossorigin="anonymous"
+    ></script>
     <script>
-      src = "https://kit.fontawesome.com/5c95e5cc68.js";
-      crossorigin = "anonymous";
-      
       let slideIndex = 1;
-      showSlides(slideIndex);
+      let timer;
 
       // Next/previous controls
       function plusSlides(n) {
+        clearTimeout(timer);
         showSlides((slideIndex += n));
       }
-      function automaticSlides() {
-      plusSlides(1);
-      setTimeout(automaticSlides, 5000); // Change slide every 5 seconds
-    }
 
       // Thumbnail image controls
       function currentSlide(n) {
+        clearTimeout(timer);
         showSlides((slideIndex = n));
       }
 
@@ -54,8 +53,49 @@
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
         captionText.innerHTML = dots[slideIndex - 1].alt;
-//for automatic slideshow
-        automaticSlides();
+
+        // Automatic slideshow
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          plusSlides(1);
+        }, 5000); // Change slide every 5 seconds
+      }
+
+      // Start automatic slideshow after page loads
+      window.addEventListener("load", function () {
+        showSlides(slideIndex);
+      });
+
+      // Get the dominant color of an image
+      function getDominantColor(image) {
+        let canvas = document.createElement("canvas");
+        let ctx = canvas.getContext("2d");
+        ctx.drawImage(image, 0, 0);
+        let imageData = ctx.getImageData(0, 0, image.width, image.height).data;
+
+        let colorCounts = {};
+        let maxCount = 0;
+        let dominantColor = "transparent";
+
+        for (let i = 0; i < imageData.length; i += 4) {
+          let r = imageData[i];
+          let g = imageData[i + 1];
+          let b = imageData[i + 2];
+          let color = `rgb(${r},${g},${b})`;
+
+          if (colorCounts[color]) {
+            colorCounts[color]++;
+          } else {
+            colorCounts[color] = 1;
+          }
+
+          if (colorCounts[color] > maxCount) {
+            maxCount = colorCounts[color];
+            dominantColor = color;
+          }
+        }
+
+        return dominantColor;
       }
     </script>
   </head>
@@ -107,49 +147,49 @@
         </p>
       </section>
 
-      <section class="gallery">
+      <section class="gallery" id="gallery">
         <!-- gallery -->
         <!-- Container for the image gallery -->
         <div class="gallery-container">
           <!-- Full-width images with number text -->
           <div class="mySlides">
             <div class="numbertext">1 / 6</div>
-            <img src="dog.jpg" style="width: 100%" />
+            <img src="dog.jpg" />
           </div>
-  
+
           <div class="mySlides">
             <div class="numbertext">2 / 6</div>
-            <img src="peacock.avif" style="width: 100%" />
+            <img src="peacock.avif" />
           </div>
-  
+
           <div class="mySlides">
             <div class="numbertext">3 / 6</div>
-            <img src="fox.jfif" style="width: 100%" />
+            <img src="fox.jfif" />
           </div>
-  
+
           <div class="mySlides">
             <div class="numbertext">4 / 6</div>
-            <img src="chamelion.jpeg" style="width: 100%" />
+            <img src="chamelion.jpeg" />
           </div>
-  
+
           <div class="mySlides">
             <div class="numbertext">5 / 6</div>
-            <img src="lamb.jpg" style="width: 100%" />
+            <img src="snake.jpeg" style="width: 100%" />
           </div>
           <div class="mySlides">
             <div class="numbertext">6 / 6</div>
-            <img src="snake.jpeg" style="width: 100%" />
+            <img src="lamb.jpg" style="width: 100%" />
           </div>
-  
+
           <!-- Next and previous buttons -->
           <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
           <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  
+
           <!-- Image text -->
           <div class="caption-container">
             <p id="caption"></p>
           </div>
-  
+
           <!-- Thumbnail images -->
           <div class="row">
             <div class="column">
@@ -193,7 +233,7 @@
                 class="demo cursor"
                 src="snake.jpeg"
                 style="width: 100%"
-                onclick="currentSlide(4)"
+                onclick="currentSlide(5)"
                 alt="Deadly Snake"
               />
             </div>
@@ -202,7 +242,7 @@
                 class="demo cursor"
                 src="lamb.jpg"
                 style="width: 100%"
-                onclick="currentSlide(4)"
+                onclick="currentSlide(6)"
                 alt="Cute Lamb"
               />
             </div>
@@ -211,25 +251,56 @@
       </section>
 
       <section class="animals" id="panda">
-        <h2 class="title">Panda</h2>
+        <div class="animal-container">
+          <div class="animal-content">
+            <h1 class="animal-title">Panda</h1>
+            <p class="animal-description">
+              The panda, also known as the giant panda, is a bear native to
+              south-central China. It is easily recognized by the large,
+              distinctive black patches around its eyes, over the ears, and
+              across its round body.
+            </p>
+          </div>
+          <img class="image" src="panda.webp" alt="Panda" />
+        </div>
       </section>
 
       <section class="animals" id="dolphin">
-        <h2 class="title">Dolphin</h2>
+        <div class="animal-container">
+          <div class="animal-content">
+            <h1 class="animal-title">Dolphin</h1>
+            <p class="animal-description">
+              The dolphin is a highly intelligent marine mammal. Known for their
+              playful nature and remarkable agility, dolphins are beloved
+              creatures found in oceans and seas around the world.
+            </p>
+          </div>
+          <img class="image" src="dolphin.jpg" alt="Dolphin" />
+        </div>
       </section>
 
       <section class="animals" id="arcticfox">
-        <h2 class="title">Arctic Fox</h2>
+        <div class="animal-container">
+          <div class="animal-content">
+            <h1 class="animal-title">Arctic Fox</h1>
+            <p class="animal-description">
+              The arctic fox is a small fox species native to the Arctic regions
+              of the Northern Hemisphere. Its thick fur and rounded body help it
+              adapt to the cold climate, making it a remarkable Arctic predator.
+            </p>
+          </div>
+          <img class="image" src="arcticfox.webp" alt="Arctic Fox" />
+        </div>
       </section>
     </main>
 
     <footer>
       <div class="footer-column">
-        <h3 class="title">Sign Up for Daily Newsletter</h3>
+        <h3 class="footer-title">Sign Up for Daily Newsletter</h3>
         <p class="description">Sign up to get daily Newsletter from us.</p>
       </div>
       <div class="footer-column">
-        <h3 class="title">Your Mail and Info</h3>
+        <h3 class="footer-title">Your Mail and Info</h3>
         <form id="footer" action="" class="contact">
           <input type="text" placeholder="Your name" />
           <input type="email" placeholder="Your email" />
