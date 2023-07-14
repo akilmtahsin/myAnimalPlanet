@@ -1,0 +1,321 @@
+/* Header section style */
+body {
+  font-family: "Caveat", cursive;
+  font-family: "Open Sans", sans-serif;
+}
+.title {
+  color: #181818;
+  font-family: Open Sans;
+  font-size: 45px;
+  font-style: normal;
+}
+.txt-color {
+  color: #fd6e0a;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 200px;
+}
+nav > ul {
+  display: flex;
+  align-items: center;
+}
+nav li {
+  list-style: none;
+  margin-right: 30px;
+}
+nav a {
+  color: #474747;
+  text-decoration: none;
+}
+.btn-primary {
+  border-radius: 5px;
+  background: #fd6e0a;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  color: #fff;
+  border: none;
+  padding: 15px 35px;
+}
+.header {
+  background-color: #fff8f3;
+  background-image: url("../images/header_bg.png"),
+    url("../images/developer.png");
+  background-repeat: no-repeat;
+  background-position: bottom right, top left;
+}
+.hero {
+  padding: 30px 30px 0px 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-content {
+  max-width: 585px;
+}
+.hero .profile {
+  width: 800px;
+  height: 700px;
+}
+.hero-greeting {
+  font-size: 45px;
+  color: #474747;
+  margin-bottom: 0;
+}
+.hero-title {
+  font-size: 85px;
+  font-weight: 700;
+  color: #181818;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  color: #757575;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+
+/* main section style */
+main {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+main section {
+  margin-top: 130px;
+}
+/* about section */
+.about {
+  padding: 150px;
+  border-radius: 10px;
+  background: #fff8f3;
+  margin: 130px 0;
+}
+.title {
+  color: #181818;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+/* Position the image container (needed to position the left and right arrows) */
+.gallery {
+  padding: 150px;
+  border-radius: 10px;
+  background: #000000;
+  margin: 130px 0;
+  
+}
+.gallery-container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+.animals {
+  padding: 100px;
+  border-radius: 10px;
+  background: #8f4d1e;
+  margin: 130px 0;
+}
+.animals .title {
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.description {
+  color: #757575;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+.about-info-container {
+  display: flex;
+  justify-content: space-around;
+}
+.about-info {
+  text-align: center;
+}
+
+.info-title {
+  color: #757575;
+}
+.info-description {
+  color: #000000;
+  font-weight: bold;
+}
+.gallery {
+  padding: 30px 150px;
+}
+
+
+
+
+/* footer section style */
+
+footer {
+  display: flex;
+  background: #fff8f3;
+  padding: 130px 200px;
+  margin-top: 100px;
+  gap: 100px;
+}
+.footer-column {
+  width: 50%;
+}
+.contact input[type="text"],
+.contact input[type="email"],
+textarea {
+  display: block;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  background: #fff;
+  padding: 18px 35px;
+  color: #757575;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  width: 100%;
+}
+
+
+/* media query */
+
+@media screen and (max-width: 576px) {
+  .header {
+    background-image: none;
+  }
+  nav,
+  nav > ul,
+  .hero,
+  .skills-container,
+  .resume-container,
+  footer,
+  .about-info-container {
+    flex-direction: column;
+    /* text-align: center; */
+  }
+  footer,
+  .about {
+    padding: 10px;
+  }
+  .footer-column {
+    width: 100%;
+  }
+  .banner .profile {
+    width: 250%;
+    height: 250%;
+  }
+  .banner {
+    padding: 100px;
+  }
+  .btn-primary {
+    margin-bottom: 15px;
+  }
+  nav > ul {
+    gap: 15px;
+  }
+
+  .what-i-do {
+    padding: 20px;
+  }
+  .contact input[type="text"],
+  .contact input[type="email"],
+  textarea {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 992px) {
+  footer {
+    padding: 30px;
+  }
+  .btn-primary {
+    margin-bottom: 15px;
+  }
+}
