@@ -66,52 +66,21 @@
         showSlides(slideIndex);
       });
 
-      // Get the dominant color of an image
-      function getDominantColor(image) {
-        let canvas = document.createElement("canvas");
-        let ctx = canvas.getContext("2d");
-        ctx.drawImage(image, 0, 0);
-        let imageData = ctx.getImageData(0, 0, image.width, image.height).data;
-
-        let colorCounts = {};
-        let maxCount = 0;
-        let dominantColor = "transparent";
-
-        for (let i = 0; i < imageData.length; i += 4) {
-          let r = imageData[i];
-          let g = imageData[i + 1];
-          let b = imageData[i + 2];
-          let color = `rgb(${r},${g},${b})`;
-
-          if (colorCounts[color]) {
-            colorCounts[color]++;
-          } else {
-            colorCounts[color] = 1;
-          }
-
-          if (colorCounts[color] > maxCount) {
-            maxCount = colorCounts[color];
-            dominantColor = color;
-          }
-        }
-
-        return dominantColor;
-      }
     </script>
   </head>
   <body>
     <header class="header">
       <nav>
-        <h3 class="title"><span class="txt-color">Animal Planet</span></h3>
+        <img class="logo" src="Pictures/Animal-Planet-logo.png" >
         <ul>
-          <li><a href="">About</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#about">About</a></li>
+          
           <li><a href="#panda">Panda</a></li>
           <li><a href="#dolphin">Dolphin</a></li>
           <li><a href="#arcticfox">Arctic Fox</a></li>
 
           <li>
-            <a href="#footer"></a><button class="btn-primary">Sign Up</button>
+            <a href=""></a><button class="btn-primary">Sign Up</button>
           </li>
         </ul>
       </nav>
@@ -132,53 +101,37 @@
             <i class="fa-solid fa-phone"></i> Contact US
           </button>
         </div>
-      </div>
-    </header>
-    <main>
-      <section class="about" id="about">
-        <h3 class="title">About This Project</h3>
-        <p class="description">
-          This project was developed as a practice purpose and with a passion to
-          feature my daily photos. <br />
-          If you have similar passion, you can
-          <span><a href="">upload</a></span> your captured image to this website
-          and we will feature it.<br />
-          Enjoy!
-        </p>
-      </section>
-
-      <section class="gallery" id="gallery">
         <!-- gallery -->
         <!-- Container for the image gallery -->
         <div class="gallery-container">
           <!-- Full-width images with number text -->
           <div class="mySlides">
             <div class="numbertext">1 / 6</div>
-            <img src="dog.jpg" />
+            <img src="Pictures/dog.jpg" />
           </div>
 
           <div class="mySlides">
             <div class="numbertext">2 / 6</div>
-            <img src="peacock.avif" />
+            <img src="Pictures/peacock.avif" />
           </div>
 
           <div class="mySlides">
             <div class="numbertext">3 / 6</div>
-            <img src="fox.jfif" />
+            <img src="Pictures/fox.jfif" />
           </div>
 
           <div class="mySlides">
             <div class="numbertext">4 / 6</div>
-            <img src="chamelion.jpeg" />
+            <img src="Pictures/chamelion.jpeg" />
           </div>
 
           <div class="mySlides">
             <div class="numbertext">5 / 6</div>
-            <img src="snake.jpeg" style="width: 100%" />
+            <img src="Pictures/snake.jpeg" style="width: 100%" />
           </div>
           <div class="mySlides">
             <div class="numbertext">6 / 6</div>
-            <img src="lamb.jpg" style="width: 100%" />
+            <img src="Pictures/lamb.jpg" style="width: 100%" />
           </div>
 
           <!-- Next and previous buttons -->
@@ -195,7 +148,7 @@
             <div class="column">
               <img
                 class="demo cursor"
-                src="dog.jpg"
+                src="Pictures/dog.jpg"
                 style="width: 100%"
                 onclick="currentSlide(1)"
                 alt="Cute Puppies"
@@ -204,7 +157,7 @@
             <div class="column">
               <img
                 class="demo cursor"
-                src="peacock.avif"
+                src="Pictures/peacock.avif"
                 style="width: 100%"
                 onclick="currentSlide(2)"
                 alt="Magnificent Peacock"
@@ -213,7 +166,7 @@
             <div class="column">
               <img
                 class="demo cursor"
-                src="fox.jfif"
+                src="Pictures/fox.jfif"
                 style="width: 100%"
                 onclick="currentSlide(3)"
                 alt="Cunning Fox"
@@ -222,7 +175,7 @@
             <div class="column">
               <img
                 class="demo cursor"
-                src="chamelion.jpeg"
+                src="Pictures/chamelion.jpeg"
                 style="width: 100%"
                 onclick="currentSlide(4)"
                 alt="Colorful Chamelion"
@@ -231,7 +184,7 @@
             <div class="column">
               <img
                 class="demo cursor"
-                src="snake.jpeg"
+                src="Pictures/snake.jpeg"
                 style="width: 100%"
                 onclick="currentSlide(5)"
                 alt="Deadly Snake"
@@ -240,7 +193,7 @@
             <div class="column">
               <img
                 class="demo cursor"
-                src="lamb.jpg"
+                src="Pictures/snake.jpeg"
                 style="width: 100%"
                 onclick="currentSlide(6)"
                 alt="Cute Lamb"
@@ -248,7 +201,22 @@
             </div>
           </div>
         </div>
+      </div>
+    </header>
+    <main>
+      <section class="about" id="about">
+        <h3 class="title">About This Project</h3>
+        <p class="description">
+          This project was developed as a practice purpose and with a passion to
+          feature my daily photos. <br />
+          If you have similar passion, you can
+          <span><a href="">upload</a></span> your captured image to this website
+          and we will feature it.<br />
+          Enjoy!
+        </p>
       </section>
+
+       
 
       <section class="animals" id="panda">
         <div class="animal-container">
